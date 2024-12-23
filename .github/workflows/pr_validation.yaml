@@ -31,7 +31,7 @@ jobs:
       - name: Execute pbm help inside the container with timeout
         timeout-minutes: 1
         run: |
-          docker exec -it sidecar-pbm pbm help
+          docker exec sidecar-pbm pbm help
 
       - name: Cleanup Docker container and images
         run: |
