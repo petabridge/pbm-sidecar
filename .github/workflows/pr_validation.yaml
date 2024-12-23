@@ -11,6 +11,7 @@ on:
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Checkout code
@@ -23,10 +24,16 @@ jobs:
         run: |
           docker build -t petabridge/pbm-sidecar:pr-validation .
 
-      - name: Run Docker container and test
+      - name: Run Docker container in detached mode
         run: |
-          docker run --rm petabridge/pbm-sidecar:pr-validation pbm help
+          docker run -d --name sidecar-pbm petabridge/pbm-sidecar:pr-validation
 
-      - name: Cleanup Docker images
+      - name: Execute pbm help inside the container with timeout
+        timeout-minutes: 1
         run: |
+          docker exec sidecar-pbm pbm help
+
+      - name: Cleanup Docker container and images
+        run: |
+          docker stop sidecar-pbm && docker rm sidecar-pbm
           docker rmi petabridge/pbm-sidecar:pr-validation || true
