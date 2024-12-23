@@ -1,4 +1,4 @@
-# pbm-sidecar
+# Petabridge.Cmd Docker Sidecar
 
 [Petabridge.Cmd](https://cmd.petabridge.com/) sidecar Docker image - designed to be run side-by-side with [Akka.NET](https://getakka.net/) applications that expose the [Petabridge.Cmd.Host port](https://cmd.petabridge.com/articles/install/host-configuration.html).
 
@@ -133,3 +133,5 @@ spec:
       - name: pbm-sidecar
         image: petabridge/pbm:latest #sidecar
 ```
+
+Copyright 2015-2025 [Petabridge](https://petabridge.com/), LLC.
