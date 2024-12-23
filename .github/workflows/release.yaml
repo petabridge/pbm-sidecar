@@ -43,14 +43,6 @@ jobs:
             petabridge/pbm:${{ github.ref_name }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      - name: Create and push manifest
-        run: |
-          docker manifest create petabridge/pbm:latest \
-            petabridge/pbm:latest-linux-amd64 \
-            petabridge/pbm:latest-linux-arm64
-          docker manifest annotate petabridge/pbm:latest petabridge/pbm:latest-linux-arm64 --arch arm64
-          docker manifest push petabridge/pbm:latest
-
       - name: Update DockerHub README
         uses: docker/metadata-action@v4
         with:
