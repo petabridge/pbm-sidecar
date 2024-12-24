@@ -1,8 +1,10 @@
 # Petabridge.Cmd Docker Sidecar
 
-![Docker Pulls](https://img.shields.io/docker/pulls/petabridge/pbm)
+[![Docker Pulls](https://img.shields.io/docker/pulls/petabridge/pbm)](https://hub.docker.com/repository/docker/petabridge/pbm/)
 
 [Petabridge.Cmd](https://cmd.petabridge.com/) sidecar Docker image - designed to be run side-by-side with [Akka.NET](https://getakka.net/) applications that expose the [Petabridge.Cmd.Host port](https://cmd.petabridge.com/articles/install/host-configuration.html).
+
+It's available on Docker Hub as [`petabridge/pbm`](https://hub.docker.com/repository/docker/petabridge/pbm/).
 
 ## Usage: Commandline
 
